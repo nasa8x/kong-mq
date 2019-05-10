@@ -50,7 +50,7 @@ KongMQ.prototype = {
 
             var queue = this.queue(Object.assign({ name: q, auto: true }, options || {}));
 
-            queue.on('process', (msg) => { this.emit('process', q, msg); });
+            queue.on('process', (msg) => { this.emit('process', queue, msg); });
 
         }
 

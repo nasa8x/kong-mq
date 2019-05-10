@@ -113,7 +113,8 @@ MQ.process(['USDT-BTC', 'GEEK-BTC', 'XLM-BTC', 'USDT-GEEK','XRP-USDT', 'XLM-USDT
 
 MQ.on('process', async (queue, message) => {
  
-    console.log(Date.now(), process.pid, queue, JSON.stringify(message));
+    console.log(Date.now(), process.pid, queue.name, JSON.stringify(message));
+    queue.ack(message);
    
 });
 

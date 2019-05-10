@@ -4,10 +4,15 @@ var util = require('util'),
     Message = require('./message');
 
 function Queue(client, options) {
-    EventEmitter.call(this);
 
+    if (!options.name) {
+        throw new Error('The queue name has not been configured yet.');
+    }
+
+    EventEmitter.call(this);
     this.options = Object.assign({ prefix: "KongMQ", auto: false, ttl: 0, limit: 0, retry: 3, debug: true, timeout: 0 }, options);
     this.id = [this.options.prefix, options.name].join(':');
+    this.name = options.name;
     this.client = client;
     this.idle = false;
     this.acknowledged = true;
