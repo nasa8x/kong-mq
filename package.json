@@ -1,0 +1,46 @@
+{
+  "name": "kong-mq",
+  "version": "1.0.1",
+  "main": "dist/index.js",
+  "description": "Node.js Redis Message Queue",
+  "author": {
+    "name": "Nasa8x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nasa8x/kong-mq"
+  },
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack --progress --watch --colors",
+    "prod": "cross-env NODE_ENV=production webpack -p --progress --colors",
+    "test": "node ./test.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "ioredis": "^4.9.3",
+    "redis": "^2.8.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "babel-loader": "^8.0.5",
+    "clean-webpack-plugin": "^0.1.19",
+    "cross-env": "^5.1.4",
+    "webpack": "^4.30.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-node-externals": "^1.6.0"
+  },
+  "keywords": [
+    "redis queue",
+    "queue message",
+    "node redis message queue",
+    "message bus",
+    "redis message bus",
+    "rsmq",
+    "redis mq",
+    "messagequeue",
+    "queue",
+    "message queue"
+   
+  ]
+}
