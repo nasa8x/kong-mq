@@ -187,11 +187,14 @@ Queue.prototype = {
         this.idle = false;
     },
 
-    flush: function () {
+    flush: function (callback) {
         this.client.multi()
             .del(this.id)
             .del(this._key('processing'))
-            .exec(() => { });
+            .exec(() => {
+                if (util.isFunction(callback))
+                    callback.apply(this);
+            });
     },
     clean: function () {
         this.flush();

@@ -36,8 +36,8 @@ KongMQ.prototype = {
         this.client.publish(...args);
     },
 
-    queue: function (options) {
-        return new Queue(this.client, options);
+    queue: function (o) {
+        return new Queue(this.client, typeof o === 'string' ? { name: o } : o);
     },
 
     process: function (queues, options) {
